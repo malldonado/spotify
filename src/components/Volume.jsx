@@ -1,37 +1,35 @@
+import axios from "axios";
 import React from "react";
 import styled from "styled-components";
-import axios from "axios";
 import { useStateProvider } from "../utils/StateProvider";
 
 export default function Volume() {
   const [{ token }] = useStateProvider();
-
   const setVolume = async (e) => {
     await axios.put(
-      `https://api.spotify.com/v1/me/player/volume`,
+      "https://api.spotify.com/v1/me/player/volume",
       {},
       {
         params: {
-          volume_percent: e.target.value,
+          volume_percent: parseInt(e.target.value),
         },
-        header: {
-          Authorization: "Bearer " + token,
+        headers: {
           "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
         },
       }
     );
   };
-
   return (
     <Container>
-      <input type="range" min={0} max={100} onMouseUp={(e) => setVolume(e)} />
+      <input type="range" onMouseUp={(e) => setVolume(e)} min={0} max={100} />
     </Container>
   );
 }
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-content: center;
   input {
     width: 15rem;
