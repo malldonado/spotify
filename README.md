@@ -1,3 +1,7 @@
+# Spotify Lading
+
+Dive into the world of music with a ReactJS-powered interface seamlessly integrated with Spotify's API. Explore tracks and playlists effortlessly, crafted with pure CSS for a sleek and immersive experience.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
